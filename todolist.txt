@@ -1,0 +1,9 @@
+ETU003962-ETU004018
+
+TABLE SQL:
+	-Table chauffeur(id_chauffeur,nom_chauffeur);
+	-Table vehicule(id_vehicule,nom_vehicule,immatriculation);
+	-Table trajet(id_trajet,nom_trajet,date_debut_trajet,date_fin_trajet,montant_recette,montant_carburant);
+	-Table histo_trajet_jour(id_histo,id_trajet,id_vehicule,id_chauffeur,km_effectue,montant_recette,montant_carburant,date_histo);
+	
+	
