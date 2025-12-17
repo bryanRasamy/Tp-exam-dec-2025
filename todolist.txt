@@ -1,31 +1,50 @@
 ETU003962-ETU004018
 
-TABLE SQL: (bryan)
-	-Table livreur(id_livreur,nom_livreur);
-	-Table vehicule(id_vehicule,nom_vehicule,immatriculation);
-	-Table statut(id_statut,nom_statut);
-	-Table colis(id_colis,nom_colis,poids);
-	-Table livraison(id_livraison,id_colis,adresse_depart,adresse_destination,id_statut);
-	-Table historique_livraison(id_histo,id_livraison,id_livreur,id_vehicule,date_livraison (date de depart),montant_recette,salaire_livreur);
+TABLE SQL: (Bryan)
+	-(ok) Table livreur(id_livreur,nom_livreur);
+	-(ok) Table vehicule(id_vehicule,nom_vehicule,immatriculation); 
+	-(ok) Table statut(id_statut,nom_statut); 
+	-(ok) Table colis(id_colis,nom_colis,poids);
+	-(ok) Table livraison(id_livraison,id_colis,adresse_depart,adresse_destination,id_statut);
+	-(ok) Table historique_livraison(id_histo,id_livraison,id_livreur,id_vehicule,date_livraison (date de depart),montant_recette,salaire_livreur);
 	
 
 PAGE:
 		
-	-accueil.php: (bryan)
+	-(ok) accueil.php: (Bryan)
 		-base: none
 			
 		-fonctions: none
 
-		-design:
-			-Sous forme de card:
-				-Bouton Gestion de livraison (lien vers gestionlivraison.php); 
-				-Bouton Benefice par periode (lien vers benefice.php); 
+		-(ok) design:
+			-(ok) Sous forme de card:
+				-(ok) Bouton Gestion de livraison (lien vers gestionlivraison.php); 
+				-(ok) Bouton Benefice par periode (lien vers benefice.php); 
 
 		-integration: none
 		
-	-gestionlivraison.php:
-	
-	-benefice.php:
+	-gestionlivraison.php: (Bryan)
+		-base:
+		
+		-fonction:
+		
+		-design:
+			-Formulaire:
+				-liste deroulante:
+					-colis;
+					-voiture;
+					-chauffeur;
+					-statut;
+					
+				-Saisie:
+					-salaire du chauffeur;
+					-montant du colis par kg;
+					-adresse de depart;
+					-adresse de destination;
+					
+				-Bouton Enregistrer(lien vers /gestion/livraison/inserer);
+				
+	-benefice.php: (Hasina)
 		
 	
 CONTROLLER-MODELS-ROUTE:
@@ -39,16 +58,38 @@ CONTROLLER-MODELS-ROUTE:
 	-gestionlivraison.php:
 		-Controller: 
 			-GestionLivraisonController:
-				-Getstatut():
+				-Getinfopourinsertion():
+					-Appel de ColisModel;
+					-Appel de VehiculeModel;
+					-Appel de ChauffeurModel;
 					-Appel de StatutModel;
-					-Appel de la fonction getstatut() de statutModel; 
-					-Recuperation du resultat;
-					-Envoie du resultat vers gestionlivraison.php;
+					-Appel de la fonction getAllcolis() de ColisModel;
+					-Appel de la fonction getAllvehicule() de VehiculeModel;
+					-Appel de la fonction getAllchauffeur() de ChauffeurModel;
+					-Appel de la fonction getAllstatus() de StatutModel;
+					-Recuperation des resultats et les placer dans un tableau;
+					-Envoie du resultat ver gestionlivraison.php;
+					
+				-Insertlivraison():
+					-Appel de LivraisonModel;
+					-Appel de HistoLivraisonModel;
+					-Prendre les valeurs dans venant du formulaire;
+					-Placer les valeurs dans les Models correspondants;
+					-Appel de la fonction insertlivraison() de LivraisonModel;
+					-Appel de la fonction inserthistorique() de HistoLivraisonModel;
+					-Appel de la fonction Getinfopourinsertion();
 		
 		-Models:
+			-ColisModel;
+			-VehiculeModel;
+			-ChauffeurModel;
 			-StatutModel;
+			-LivraisonModel;
+			-HistoLivraisonModel;
 		
-		-Route: /gestion/livraison;
+		-Route: 
+			-/gestion/livraison;
+			-/gestion/livraison/inserer;
 		
 	-benefice.php:
 		-Controller:
