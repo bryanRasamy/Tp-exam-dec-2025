@@ -23,7 +23,7 @@ PAGE:
 
 		-integration: none
 		
-	-gestionlivraison.php: (Bryan)
+	-(ok) gestionlivraison.php: (Bryan)
 		-(ok) base:
 			-(ok) Table colis;
 			-(ok) Table livreur;
@@ -66,8 +66,8 @@ CONTROLLER-MODELS-ROUTE:
 		
 		-(ok) Route: /;
 		
-	-gestionlivraison.php:
-		-Controller: 
+	-(ok) gestionlivraison.php:
+		-(ok) Controller: 
 			-(ok) GestionLivraisonController:
 				-(ok) Getinfopourinsertion():
 					-(ok) Appel de ColisModel; 
@@ -94,7 +94,7 @@ CONTROLLER-MODELS-ROUTE:
 					-(ok) Appel de la fonction insererhistorique() de HistoLivraisonModel;
 					-(ok) Appel de la fonction Getinfopourinsertion();
 		
-		-Models:
+		-(ok) Models:
 			-(ok) ColisModel;
 			-(ok) VehiculeModel;
 			-(ok) ChauffeurModel;
@@ -102,7 +102,7 @@ CONTROLLER-MODELS-ROUTE:
 			-(ok) LivraisonModel;
 			-(ok) HistoLivraisonModel;
 		
-		-Route: 
+		-(ok) Route: 
 			-(ok) /gestion/livraison;
 			-(ok) /gestion/livraison/inserer;
 			
