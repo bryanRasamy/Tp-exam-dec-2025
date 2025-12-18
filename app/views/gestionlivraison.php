@@ -115,7 +115,7 @@
                                     <button type="submit" class="btn btn-success  mt-5 col-12 col-lg-12 col-md-12 fs-5">
                                         Enregistrer
                                     </button>
-                                    <a href="/" class="btn btn-danger  mt-4 col-12 col-lg-12 col-md-12 fs-5 mb-4">
+                                    <a href="<?= BASE_URL ?>/" class="btn btn-danger  mt-4 col-12 col-lg-12 col-md-12 fs-5 mb-4">
                                         Annuler
                                     </a>
                                 <?php
